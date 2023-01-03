@@ -22,4 +22,4 @@ jobs:
       - name: Set output
         id: output
         if: success()
-        run: echo "::set-output name result::success"
+        run: echo "result=success" >> $GITHUB_OUTPUTS
