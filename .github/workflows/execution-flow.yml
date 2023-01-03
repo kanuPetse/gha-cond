@@ -76,9 +76,6 @@ jobs:
       - name: Deploy
         run: echo "Deploying..."
   report:
-    environment:
-    env:
-    outputs:
     if: failure()
     needs: [lint,deploy]
     runs-on: ubuntu-latest
