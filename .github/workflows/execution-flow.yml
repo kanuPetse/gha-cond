@@ -69,6 +69,8 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/reuse-deploy.yml
+    with:
+      exec-files: dist-files
   report:
     if: failure()
     needs: [lint,deploy]

@@ -1,8 +1,17 @@
 name: Deploy
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      exec-files:
+        description: name of the execution file
+        type: string
+        required: true
+        default: dist
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
-        run: echo "Re-usable Deployment..."
+      - name: Download Artifacts
+        uses: actions/download-artifacts@v3
+        with:
+          name: ${{ inputs.exec-files }}
