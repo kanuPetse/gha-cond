@@ -14,7 +14,7 @@ on:
 jobs:
   deploy:
     outputs:
-      result: ${{ steps.output.result }}
+      result: ${{ steps.outputs.result }}
     runs-on: ubuntu-latest
     steps:
       - name: Download Artifacts
@@ -24,4 +24,4 @@ jobs:
       - name: Set output
         id: output
         if: success()
-        run: echo "result=success" >> $GITHUB_OUTPUT
+        run: echo "::set-output name=result::success"
