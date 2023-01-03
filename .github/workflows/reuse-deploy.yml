@@ -8,7 +8,9 @@ on:
         required: true
         default: dist
     outputs:
-      result: ${{ jobs.deploy.outputs.result }}
+      result:
+        description: deploy result
+        value: ${{ jobs.deploy.outputs.result }}
 jobs:
   deploy:
     outputs:
