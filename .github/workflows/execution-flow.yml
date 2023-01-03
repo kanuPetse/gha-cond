@@ -76,8 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Display Result
-        if: needs.deploy.outputs.result == 'success'
-        run: echo "Deployment Successfull!!!"
+        run: echo "${{ needs.deploy.outputs.result }}!!!"
   report:
     if: failure()
     needs: [lint,deploy]
