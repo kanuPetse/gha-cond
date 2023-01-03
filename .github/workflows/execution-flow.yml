@@ -71,6 +71,14 @@ jobs:
     uses: ./.github/workflows/reuse-deploy.yml
     with:
       exec-files: dist-files
+  display-result:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Result
+        if: needs.deploy.outputs.result == 'success'
+        run: |
+          echo "Deployment Successfull!!!"
   report:
     if: failure()
     needs: [lint,deploy]
